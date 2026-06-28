@@ -1,0 +1,21 @@
+PASO 3 — Diferencia entre Docker y Atlas (4.3 — 1 pt):
+
+Responde en el espacio de abajo (3-5 líneas):
+
+a) ¿Cuándo usarías MongoDB en Docker en lugar de MongoDB Atlas para el equipo de Yape?
+Usaría MongoDB en Docker exclusivamente para las etapas de desarrollo y pruebas locales.
+Permite a los desarrolladores de Yape hacer pruebas rápidas sin latencia, trabajar sin conexión a 
+internet y tener un entorno aislado que pueden crear o destruir sin miedo a afectar la base de datos 
+real o generar costos en la nube.
+
+b) ¿Qué ventaja tiene Atlas M0 sobre el contenedor Docker para el contexto universitario?
+La ventaja principal de Atlas M0 es que al estar alojado en la nube, es accesible desde cualquier
+ lugar y herramienta (como Google Colab) sin necesidad de configuraciones de red complejas. Además, 
+ los estudiantes no necesitan instalar software pesado en sus computadoras y la base de datos está 
+ disponible 24/7 sin consumir recursos de sus propios equipos.
+
+c) ¿Qué sucede con los datos del contenedor Docker si ejecutas docker stop yape-mongo-local y luego docker rm yape-mongo-local? 
+¿Y con los datos de Atlas?
+Al ejecutar docker rm, pierdes permanentemente todos los datos de tu base de datos local, ya que el contenedor se destruye 
+y no configuraste un "volumen" persistente en el Paso 1. Por el contrario, los datos de Atlas permanecen intactos y seguros, 
+ya que están respaldados en los servidores de la nube y son completamente independientes de lo que ocurra en tu computadora local.
