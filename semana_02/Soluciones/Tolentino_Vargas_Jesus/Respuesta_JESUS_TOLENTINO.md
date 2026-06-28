@@ -35,8 +35,10 @@
 
 a) Almacenar los bloques de datos distribuidos en el clúster  
 b) Procesar las tareas MapReduce asignadas a cada nodo  
-**c) Mantener el índice (metadatos) de dónde se encuentran los bloques de datos[x]**  
+c) Mantener el índice (metadatos) de dónde se encuentran los bloques de datos[x]
 d) Gestionar las conexiones de red entre los DataNodes  
+
+RESPUESTA: c) 
 
 ---
 
@@ -44,45 +46,46 @@ d) Gestionar las conexiones de red entre los DataNodes
 
 a) 4 KB  
 b) 64 MB  
-**c) 128 MB[x]**  
+c) 128 MB[x] 
 d) 1 GB  
-
+RESPUESTA: c) 
 ---
 
 **3.** En el modelo MapReduce, ¿cuál es la función de la fase "Shuffle and Sort"?
 
 a) Escribir los resultados finales en HDFS  
-**b) Agrupar todos los pares clave-valor con la misma clave y enviarlos al mismo Reducer[x]**  
+b) Agrupar todos los pares clave-valor con la misma clave y enviarlos al mismo Reducer[x]  
 c) Distribuir el archivo de entrada entre los DataNodes del clúster  
 d) Comprimir los datos antes de enviarlos a los nodos trabajadores  
-
+RESPUESTA: b)
 ---
 
 **4.** ¿Qué componente de Hadoop se encarga de gestionar los recursos (CPU, RAM) del clúster y asignarlos a los trabajos que se ejecutan?
 
 a) HDFS  
 b) HBase  
-**c) YARN[x]**  
-d) ZooKeeper  
+c) YARN[x]  
+d) ZooKeeper 
 
+RESPUESTA: c)
 ---
 
 **5.** Una empresa quiere consultar el saldo de un cliente bancario en menos de 50 milisegundos, buscando por número de DNI. ¿Qué tecnología del ecosistema Hadoop es más adecuada para este caso?
 
 a) HDFS — porque distribuye los datos en múltiples nodos  
-**b) HBase — porque permite acceso aleatorio en tiempo real por Row Key[x]**  
+b) HBase — porque permite acceso aleatorio en tiempo real por Row Key[x]  
 c) MapReduce — porque procesa datos en paralelo eficientemente  
 d) Hive — porque permite consultas similares a SQL  
-
+RESPUESTA: b)
 ---
 
 **6.** ¿Qué diferencia fundamental existe entre Cloud Computing y Fog Computing?
 
 a) Cloud usa servidores físicos y Fog usa servidores virtuales  
-**b) Fog procesa los datos cerca de donde se generan (borde de la red), mientras Cloud centraliza el procesamiento en data centers remotos[x]**  
+b) Fog procesa los datos cerca de donde se generan (borde de la red), mientras Cloud centraliza el procesamiento en data centers remotos[x]  
 c) Cloud es gratuito y Fog es de pago  
 d) Fog solo funciona con datos estructurados, mientras Cloud procesa cualquier tipo  
-
+RESPUESTA: b)
 ---
 
 **7.** Si un archivo de 400 MB se almacena en HDFS con tamaño de bloque de 128 MB y factor de replicación 3, ¿cuántos bloques físicos (copias) se almacenan en total en el clúster?
@@ -90,35 +93,35 @@ d) Fog solo funciona con datos estructurados, mientras Cloud procesa cualquier t
 a) 3  
 b) 4  
 c) 9  
-**d) 12[x]**  
-
+d) 12[x] 
+RESPUESTA: d)
 ---
 
 **8.** ¿Cuál es la principal limitación de Hadoop MapReduce frente a Apache Spark?
 
 a) MapReduce no puede procesar archivos de más de 1 GB  
 b) MapReduce requiere que los datos estén estructurados en formato CSV  
-**c) MapReduce escribe resultados intermedios en disco entre fases, haciéndolo más lento que Spark (que procesa en RAM)[x]**  
+c) MapReduce escribe resultados intermedios en disco entre fases, haciéndolo más lento que Spark (que procesa en RAM)[x]
 d) MapReduce no soporta el lenguaje Python para programar los jobs  
-
+RESPUESTA: c)
 ---
 
 **9.** En un modelo de servicio cloud, ¿cuál corresponde a "Platform as a Service" (PaaS) en el contexto de Big Data?
 
 a) Comprar servidores físicos para el data center propio de la empresa  
 b) Usar Amazon EC2 para instalar y configurar Hadoop manualmente  
-**c) Usar Amazon EMR o Google Dataproc, donde el proveedor gestiona el clúster y tú solo ejecutas los jobs[x]**  
+c) Usar Amazon EMR o Google Dataproc, donde el proveedor gestiona el clúster y tú solo ejecutas los jobs[x] 
 d) Usar Databricks con notebooks donde todo está configurado y solo escribes código  
-
+RESPUESTA: c)
 ---
 
 **10.** Un DataNode en un clúster Hadoop con factor de replicación 3 falla repentinamente. ¿Cuál es el comportamiento esperado del sistema?
 
 a) Todo el clúster cae hasta que el DataNode sea reparado  
 b) Se pierden permanentemente todos los bloques que estaban en ese DataNode  
-**c) El NameNode detecta el fallo, redirige las solicitudes a los otros nodos con copias, y comienza a re-replicar los bloques para restaurar el factor 3[x]**  
+c) El NameNode detecta el fallo, redirige las solicitudes a los otros nodos con copias, y comienza a re-replicar los bloques para restaurar el factor 3[x] 
 d) El sistema suspende todos los jobs en ejecución hasta recuperar el nodo  
-
+RESPUESTA: c)
 ---
 
 ## SECCIÓN B — COMPLETAR Y RELACIONAR (20 puntos)
@@ -166,19 +169,19 @@ Relaciona cada concepto (columna izquierda) con su descripción correcta (column
 
 a) ¿Qué tipo de procesamiento requiere cada necesidad (batch o streaming)?
 
-**Reportes de emergencias cada 30 segundos → procesamiento STREAMING (tiempo real)**
+Los reportes que envían los hospitales cada 30 segundos necesitan un procesamiento streaming, ya que la información debe analizarse prácticamente en tiempo real para detectar emergencias o cambios importantes de forma inmediata.
 
-**Análisis histórico de patrones estacionales de 5 años → procesamiento BATCH (por lotes)** 
+En cambio, el análisis de los datos acumulados durante los últimos cinco años corresponde a un procesamiento batch, porque se trabaja con información histórica para identificar tendencias y patrones sin que sea necesario obtener resultados al instante.
  
 b) ¿Qué componentes del ecosistema Hadoop/Cloud recomendarías para cada caso?
 
-**Para el streaming: Apache Kafka (ingesta de los eventos que envían los hospitales cada 30s) + Apache Spark Streaming (procesamiento en tiempo real) y un dashboard de monitoreo.**
+Para el procesamiento en tiempo real utilizaría Apache Kafka para recibir continuamente los datos enviados por los hospitales y Apache Spark Streaming para analizarlos a medida que llegan. Los resultados podrían mostrarse en un dashboard para que el personal de salud monitoree la situación en tiempo real.
 
-**Para el histórico: HDFS o un Data Lake en la nube (almacenamiento de los 5 años de datos) + Apache Spark / Hive para las consultas analíticas por lotes.**
+Para el análisis histórico emplearía HDFS o un Data Lake para almacenar toda la información generada durante los cinco años, y Apache Spark o Apache Hive para ejecutar consultas y generar reportes sobre grandes volúmenes de datos de forma eficiente.
   
 c) Justifica por qué elegiste esos componentes y no otros.
 
-**Kafka y Spark Streaming son ideales para el flujo continuo porque procesan los eventos a medida que llegan, con baja latencia, permitiendo alertas inmediatas ante un brote. Para el histórico de 5 años no se necesita tiempo real, sino capacidad de procesar grandes volúmenes acumulados; por eso HDFS (almacenamiento distribuido y barato) con Spark/Hive (consultas analíticas masivas) es lo más eficiente y económico. Usar streaming para el histórico sería innecesariamente caro, y usar batch para las emergencias sería demasiado lento para salvar vidas.**
+Kafka y Spark Streaming son una buena combinación para este caso porque permiten recibir y procesar la información apenas llega desde los hospitales. Esto hace posible detectar situaciones críticas casi en tiempo real y apoyar la toma de decisiones de forma rápida. En cambio, para analizar la información acumulada de los últimos cinco años es más conveniente utilizar HDFS junto con Spark o Hive, ya que están diseñados para procesar grandes volúmenes de datos de manera eficiente. De esta forma se utiliza la herramienta adecuada para cada necesidad.
 
 ---
 
@@ -186,15 +189,15 @@ c) Justifica por qué elegiste esos componentes y no otros.
 
 a) ¿Qué problema resuelve la "localidad de datos" en Hadoop?
 
-**Resuelve el cuello de botella de la red. En lugar de mover los datos hacia donde está el programa (como en cliente-servidor), Hadoop mueve el código de procesamiento hacia donde ya están los datos (al DataNode que tiene el bloque). Así se evita transferir grandes volúmenes por la red.**
+La localidad de datos busca reducir el tráfico en la red. En lugar de mover archivos muy grandes hacia el servidor donde se ejecuta el programa, Hadoop envía el procesamiento al nodo donde ya están almacenados los datos. Esto hace que el trabajo sea mucho más rápido y aprovecha mejor los recursos del clúster.
   
 b) ¿Por qué este principio es especialmente importante cuando los archivos tienen tamaños de 1 TB o más?
 
-**Mover 1 TB a través de la red para procesarlo en otro servidor tomaría muchísimo tiempo y saturaría el ancho de banda del clúster. Procesando cada bloque en el nodo donde ya reside, el trabajo se hace en paralelo y solo viajan por la red los resultados (pequeños), no los datos crudos (enormes).**
+Cuando los archivos tienen tamaños de 1 TB o más, copiarlos de un servidor a otro puede tomar bastante tiempo y consumir mucho ancho de banda. Al procesar los datos directamente en el nodo donde se encuentran almacenados, solo se envían los resultados finales, que normalmente son mucho más pequeños.
   
 c) ¿Este principio sigue siendo válido en entornos cloud donde el almacenamiento (S3) y el cómputo (EC2) están separados?
 
-**El principio se relaja en la nube, porque al separar almacenamiento (S3) y cómputo (EC2/EMR) los datos sí deben viajar por la red. Sin embargo, los proveedores compensan esto con redes internas de altísima velocidad, capas de caché y formatos columnares optimizados (como Parquet) que minimizan cuántos datos hay que leer. Es un trade-off: se pierde algo de localidad pero se gana flexibilidad y escalado independiente de cómputo y almacenamiento.**
+En los servicios cloud el almacenamiento y el procesamiento suelen estar separados, por lo que parte de la información sí debe viajar por la red. Sin embargo, este impacto se reduce gracias a la infraestructura de alta velocidad del proveedor y al uso de formatos optimizados como Parquet. Aunque el concepto cambia un poco respecto a Hadoop tradicional, el objetivo sigue siendo minimizar el movimiento innecesario de datos.
 
 ---
 
@@ -204,7 +207,7 @@ c) ¿Este principio sigue siendo válido en entornos cloud donde el almacenamien
 
 a) ¿Usarías HDFS o una base de datos relacional (SQL) para almacenar estos 25 GB? Justifica.
 
-**Usaría HDFS. Una base relacional tradicional sufre con 60 millones de filas en consultas analíticas que recorren toda la tabla, y el análisis de canasta es un proceso batch (una vez al mes), no transaccional. HDFS + un motor distribuido (Spark/MapReduce) procesa esos 25 GB en paralelo de forma mucho más eficiente y escalable que un SQL monolítico.**
+En este caso utilizaría HDFS porque el objetivo es analizar una gran cantidad de información de manera periódica. Los 25 GB mensuales y los millones de registros pueden procesarse de forma distribuida utilizando Spark o MapReduce. Una base de datos relacional sería más adecuada para operaciones transaccionales, pero no para este tipo de análisis masivo.
   
 b) Describe en pseudocódigo los pasos del algoritmo MapReduce para encontrar las 10 combinaciones de productos más frecuentes.
 
@@ -232,13 +235,15 @@ devolver los primeros 10 pares</b>
 
 **19. (8 puntos)** Explica por qué el "Single Point of Failure" del NameNode fue el mayor problema de Hadoop 1.x y cómo lo resolvió Hadoop 2.x con la arquitectura de Alta Disponibilidad (HA). 
 
-<b>En Hadoop 1.x existía un único NameNode que guardaba todos los metadatos del sistema de archivos. Si ese NameNode fallaba, todo el clúster quedaba inaccesible: aunque los datos seguían físicamente en los DataNodes, sin el "mapa" de metadatos era imposible saber dónde estaba cada bloque. Ese era el famoso "Single Point of Failure" (punto único de fallo).
+En Hadoop 1.x existía un único NameNode encargado de administrar todos los metadatos del sistema de archivos. Si ese servidor fallaba, el clúster dejaba de funcionar porque ya no era posible saber dónde estaban almacenados los bloques de datos, aunque estos siguieran existiendo en los DataNodes.
 
-Hadoop 2.x lo resolvió con la arquitectura de Alta Disponibilidad (HA): introduce dos NameNodes, uno Activo y uno en Espera (Standby). Ambos se mantienen sincronizados mediante JournalNodes (que registran cada cambio) y ZooKeeper (que detecta la caída del activo y promueve automáticamente al standby). Si el NameNode activo cae, el standby toma el control en segundos sin interrumpir el servicio.</b>
+Hadoop 2 solucionó este problema incorporando Alta Disponibilidad (HA), donde existen dos NameNodes: uno activo y otro en espera. Ambos permanecen sincronizados y, si el principal presenta una falla, el secundario asume el control automáticamente. Esto permite mantener el servicio disponible sin afectar el funcionamiento del clúster.
+
 
 ¿Qué implicaciones tiene este problema para el diseño de sistemas críticos de producción?
 
-**Ningún sistema de misión crítica (un banco, un hospital, una telco) puede depender de un único componente cuya caída detenga todo. El diseño debe eliminar los puntos únicos de fallo mediante redundancia y failover automático. La lección es que la tolerancia a fallos no es opcional en producción: debe diseñarse desde el inicio, no agregarse después.**
+
+Este caso demuestra la importancia de evitar puntos únicos de fallo en sistemas críticos. En ambientes de producción siempre es recomendable implementar mecanismos de redundancia y recuperación automática para garantizar la continuidad del servicio.
 
 ---
 
@@ -262,27 +267,32 @@ Responde:
 a) ¿Qué componentes del ecosistema Hadoop/Cloud usarías para cada uno de los 4 requerimientos? Crea una tabla con: Requerimiento | Tecnología | Justificación (5 puntos)
 
 
-| Requerimiento | Tecnología | Justificación |
-| :--- | :--- | :--- |
-| **1.** Monitoreo en tiempo real de posición de buses | Apache Kafka + Spark Streaming | Los GPS envían datos cada 15s; se necesita procesarlos al instante para mostrar posición en vivo a los pasajeros |
-| **2.** Detectar conducción peligrosa | Spark Streaming + reglas/ML en tiempo real | Frenadas bruscas o exceso de velocidad deben detectarse en segundos para alertar; requiere análisis del flujo en vivo |
-| **3.** Análisis histórico de 2 años para optimizar rutas | HDFS / Data Lake + Spark (batch) + Hive | Es procesamiento masivo por lotes sobre datos acumulados; no requiere tiempo real |
-| **4.** Almacenar videos 30 días para incidentes | Almacenamiento de objetos (Amazon S3 / MinIO) | E1.15 PB de video se guardan más barato y escalable en object storage que en HDFS o HBase |
+| Requerimiento                                               | Tecnología                             | Justificación                                                                                                                                                                                                                                                                                                                                                   |
+| :---------------------------------------------------------- | :------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Monitoreo en tiempo real de la posición de los buses** | **Apache Kafka + Spark Streaming**     | Los dispositivos GPS generan información constantemente, por lo que se necesita una plataforma capaz de recibir y procesar esos datos casi al instante. Kafka permite manejar el flujo continuo de eventos y Spark Streaming analiza la información en tiempo real para actualizar la ubicación de cada bus.                                                    |
+| **2. Detectar conducción peligrosa**                        | **Spark Streaming + Machine Learning** | Para identificar excesos de velocidad o frenadas bruscas es necesario analizar cada evento conforme ocurre. Spark Streaming permite aplicar reglas de negocio o modelos de Machine Learning para detectar comportamientos anómalos y generar alertas en pocos segundos.                                                                                         |
+| **3. Análisis histórico de dos años para optimizar rutas**  | **HDFS + Apache Spark + Hive**         | El análisis histórico trabaja con millones de registros acumulados, por lo que resulta más eficiente almacenarlos en HDFS y procesarlos con Spark. Hive facilita la consulta de esos datos mediante un lenguaje similar a SQL para generar reportes y apoyar la toma de decisiones.                                                                             |
+| **4. Almacenamiento de videos por 30 días**                 | **Amazon S3 o MinIO**                  | Debido al gran volumen de videos que se genera diariamente, un almacenamiento de objetos es la alternativa más conveniente. Este tipo de solución ofrece mayor capacidad de crecimiento, menor costo por almacenamiento y permite administrar fácilmente el ciclo de vida de los archivos, eliminándolos automáticamente cuando cumplen el tiempo de retención. |
+
 
 b) Para los datos GPS, ¿usarías HBase o HDFS? ¿Por qué depende del caso de uso? Explica con un ejemplo concreto de cada caso de uso de GPS. (5 puntos)
 
 Depende del caso de uso:
 
 
-**HBase si la necesidad es consultar la última posición de UN bus específico en tiempo real. Ejemplo: "¿dónde está ahora mismo el bus que cubre la ruta Lima-Arequipa placa X?" → búsqueda puntual por Row Key (placa+timestamp), respuesta en milisegundos.**
+Utilizaría HBase cuando sea necesario consultar rápidamente la información de un bus específico, por ejemplo conocer su ubicación actual para informar a un pasajero. Como HBase permite búsquedas por Row Key, la respuesta se obtiene en muy poco tiempo.
 
-**HDFS si la necesidad es el análisis histórico masivo. Ejemplo: "analizar los 6.9 millones de registros GPS diarios de los últimos 2 años para encontrar las rutas con más demoras" → barrido completo de datos en batch con Spark.**
+En cambio, utilizaría HDFS cuando el objetivo sea analizar millones de registros históricos para identificar patrones, retrasos o proponer mejoras en las rutas. En este escenario resulta más eficiente procesar toda la información mediante Spark.
+
+Lo más recomendable es combinar ambas tecnologías: HBase para las consultas en tiempo real y HDFS para el análisis histórico.
 
 En la práctica se usan ambos: HBase para el acceso en vivo y HDFS para el histórico.
 
 c) ¿Los videos irían a HDFS, HBase o a un almacenamiento de objetos (S3/MinIO)? Justifica considerando el volumen (38 TB/día × 30 días = 1.15 PB). (5 puntos)
 
-**Los videos irían a un almacenamiento de objetos (S3 / MinIO), no a HDFS ni HBase. Razones considerando el volumen (38 TB/día × 30 días = 1.15 PB):**
+Los videos los almacenaría en un sistema de almacenamiento de objetos como Amazon S3 o MinIO. Este tipo de plataformas está diseñado para manejar archivos grandes de forma económica y escalable.
+
+Guardar más de un petabyte de videos en HDFS implicaría un consumo muy alto de almacenamiento debido a la replicación, mientras que HBase tampoco está pensado para almacenar archivos multimedia de gran tamaño. Además, el almacenamiento de objetos permite administrar políticas de retención y eliminar automáticamente los videos cuando cumplen el tiempo definido.
 
 **-El object storage está diseñado para archivos grandes e inmutables (como videos) a un costo por TB mucho menor.  
 -HDFS sufriría con tantos archivos grandes porque sobrecargaría la memoria del NameNode con metadatos, y mantener réplicas de 1.15 PB sería carísimo.  
@@ -302,22 +312,11 @@ Describe:
 - Por qué el procesamiento batch tradicional (MapReduce) NO sería suficiente para este caso
 - Qué herramienta reemplazaría a MapReduce en este escenario
 
-<b>**Arquitectura por capas:**
+Para este escenario implementaría una arquitectura basada en procesamiento en tiempo real.
 
-* **Capa de ingesta:** Apache Kafka, recibiendo las 10,000 transacciones por segundo como flujo de eventos.
-* **Capa de procesamiento en tiempo real:** Apache Spark Streaming (o Apache Flink), que consume el flujo de Kafka y evalúa cada transacción.
-* **Capa de consulta rápida:** HBase, para verificar en milisegundos el historial/perfil del cliente (lookup por Row Key) y enriquecer la decisión.
-* **Capa de modelo:** un modelo de Machine Learning entrenado (ej. con MLlib) que asigna un score de riesgo a cada transacción.
-* **Capa de alerta/salida:** si el score supera el umbral, se emite una alerta (a otro topic de Kafka, a un dashboard o al sistema antifraude).
+Las transacciones ingresarían primero a Apache Kafka, que actuaría como plataforma de mensajería. Luego Spark Streaming consumiría esos eventos y evaluaría cada transacción aplicando reglas de negocio o un modelo de Machine Learning. Si fuera necesario consultar información del cliente, se accedería rápidamente a HBase, y finalmente, si se detecta una operación sospechosa, el sistema enviaría una alerta al área correspondiente.
 
-Flujo de datos:
-Transacción → Kafka (ingesta) → Spark Streaming (procesa el evento) → consulta a HBase del perfil del cliente → el modelo ML calcula el score de riesgo → si es sospechoso, se dispara la alerta en menos de 2 segundos.
-
-Por qué MapReduce NO sería suficiente:
-MapReduce es un motor batch: agrupa los datos y los procesa en lotes, escribiendo resultados intermedios en disco entre fases. Eso introduce minutos (u horas) de latencia. Para el fraude, una alerta que llega 10 minutos después es inútil porque la transacción fraudulenta ya se aprobó. MapReduce no fue diseñado para procesar eventos individuales en milisegundos.
-
-Qué reemplaza a MapReduce:
-Apache Spark Streaming o Apache Flink, que procesan los datos en memoria y en streaming (evento por evento o en micro-lotes), logrando la baja latencia que exige el caso.</b>
+No utilizaría MapReduce porque trabaja por lotes y necesita escribir resultados intermedios en disco, lo que incrementa considerablemente la latencia. En un sistema antifraude la respuesta debe generarse en pocos segundos, por lo que herramientas como Spark Streaming o Apache Flink resultan mucho más apropiadas.
 
 ---
 
@@ -328,24 +327,26 @@ Apache Spark Streaming o Apache Flink, que procesan los datos en memoria y en st
 Analiza:
 - ¿Es técnicamente posible?
 
-**Sí, técnicamente se puede almacenar todo en HBase, pero es una mala decisión de diseño.**
+Sí, es posible almacenar toda la información en HBase, pero no sería la mejor decisión. Aunque HBase puede manejar grandes volúmenes de datos, fue diseñado principalmente para consultas rápidas sobre registros específicos y no para realizar análisis históricos de varios años.
 
 - ¿Cuáles serían los problemas de rendimiento, costo y escalabilidad?
 
 Problemas de rendimiento, costo y escalabilidad:
 
 
-**Rendimiento:** HBase está optimizado para acceso aleatorio puntual (por Row Key), no para escaneos analíticos masivos. Analizar 5 años de datos (petabytes) requeriría full table scans que en HBase son lentos e ineficientes comparados con Spark/Hive sobre HDFS o formatos columnares como Parquet.   
-**Costo:** HBase consume mucha más RAM y recursos por la sobrecarga de mantener regiones, memstores y compactaciones. Guardar petabytes históricos en HBase es mucho más caro que en HDFS o en almacenamiento de objetos.  
-**Escalabilidad:** Las compactaciones y el balanceo de regiones se vuelven un cuello de botella operativo a escala de petabytes para datos que en realidad solo se consultan ocasionalmente.
+Rendimiento: Al utilizar HBase para almacenar datos históricos, las consultas analíticas serían más lentas, ya que este tipo de base de datos no está optimizada para recorrer grandes cantidades de información. En cambio, HDFS junto con Spark o Hive ofrece un mejor desempeño para este tipo de análisis.
+
+Costo: Mantener petabytes de información en HBase implica un mayor consumo de memoria y recursos del clúster. Esto incrementa el costo de infraestructura y hace que el sistema sea menos eficiente para datos que solo se consultan de manera ocasional.
+
+Escalabilidad: A medida que el volumen de información aumenta, también lo hacen las tareas de administración interna de HBase, como las compactaciones y el balanceo de regiones. Esto puede afectar el rendimiento general del sistema y dificultar su administración.
 
 - ¿Cuál sería el riesgo de este diseño en producción?
 
-**El clúster se vuelve costoso, difícil de mantener y con rendimiento degradado tanto para el tiempo real como para el análisis. Se pierde la ventaja de HBase (velocidad en acceso aleatorio) al saturarlo con datos históricos que no necesitan ese patrón de acceso.**
+El principal riesgo es utilizar una sola tecnología para resolver necesidades diferentes. El sistema terminaría consumiendo más recursos, aumentando los costos y reduciendo el rendimiento tanto de las consultas en tiempo real como de los análisis históricos. En lugar de aprovechar las ventajas de HBase, se estaría utilizando fuera del escenario para el que fue diseñado.
 
 - ¿Qué evidencia de la sesión de clase apoya tu respuesta?
 
-**Cada herramienta del ecosistema Hadoop tiene un propósito específico: HDFS para almacenamiento histórico masivo y barato, HBase para acceso aleatorio en tiempo real. La arquitectura correcta los combina (HDFS para el histórico, HBase para el tiempo real) en lugar de forzar una sola herramienta para todo. Usar la herramienta equivocada para un caso de uso es un antipatrón de diseño en Big Data.**
+Durante la sesión vimos que cada componente del ecosistema Hadoop cumple una función específica. HDFS está orientado al almacenamiento distribuido y al procesamiento masivo de datos históricos, mientras que HBase está pensado para consultas rápidas sobre registros individuales. Por esa razón, una arquitectura que combine ambas tecnologías resulta más eficiente que intentar resolver todos los casos de uso únicamente con HBase.
 
 ---
 
